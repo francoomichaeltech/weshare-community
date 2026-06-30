@@ -1,0 +1,27 @@
+
+# Python
+
+__pycache__/
+
+*.pyc
+
+*.pyo
+
+# Virtual environment
+
+venv/
+
+# Database (ina data za test/personal)
+
+weshare.db
+
+# Uploaded images za watumiaji
+
+assets/uploads/
+
+# OS files
+
+.DS_Store
+
+Thumbs.db
+
