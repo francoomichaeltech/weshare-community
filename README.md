@@ -44,19 +44,89 @@ All dependencies are listed in `requirements.txt`:
 PyQt6>=6.5.0
 ```
 
+On Linux/Debian the Python executable is called `python3`, not `python`.
+Use `python3` and `pip3` (or the venv approach below) for every command in
+this guide when on Linux. On Windows, `python` and `pip` refer to Python 3
+automatically as long as Python 3 was installed from python.org.
+
 ## 2. Installation and Running the App
 
-Install dependencies:
+### Linux and Debian (recommended: virtual environment)
+
+Modern Debian/Ubuntu systems (Python 3.11 and newer) block installing
+packages directly into the system Python to prevent breaking OS tools.
+The recommended way is to create a virtual environment for this project:
 
 ```bash
+cd WeShare_PyQt6
+
+# Step 1: create a virtual environment called "venv" inside the project folder
+python3 -m venv venv
+
+# Step 2: activate the virtual environment
+# You will see "(venv)" appear at the start of your terminal prompt
+source venv/bin/activate
+
+# Step 3: install dependencies (this now works without any error)
 pip install -r requirements.txt
+
+# Step 4: run the application
+python3 main.py
 ```
 
-Run the application from the project folder:
+Every time you open a new terminal session and want to run the app again,
+you only need to repeat steps 2 and 4:
 
 ```bash
+source venv/bin/activate
+python3 main.py
+```
+
+You do not need to repeat steps 1 and 3 — the virtual environment and its
+installed packages stay in the `venv/` folder permanently until you
+delete it.
+
+### Linux (alternative: system-wide, quick setup)
+
+If you need to get up and running immediately and do not want a virtual
+environment, you can force a system-wide install:
+
+```bash
+pip install -r requirements.txt --break-system-packages
+python3 main.py
+```
+
+This works but is not recommended for long-term use because it can
+conflict with other system packages.
+
+### Windows
+
+On Windows, open a Command Prompt or PowerShell inside the project folder:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 python main.py
 ```
+
+To run the app again in a new session:
+
+```bash
+venv\Scripts\activate
+python main.py
+```
+
+### macOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 main.py
+```
+
+---
 
 The SQLite database file (`weshare.db`) is created automatically on first
 run if it does not already exist, including all tables and a seeded admin
