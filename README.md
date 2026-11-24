@@ -494,3 +494,11 @@ described in section 11.
   editing the `REGIONS` constant in `styles_qt.py` without touching any
   other file, since every dropdown that uses it reads from that single
   list.
+
+---
+
+## Author
+
+- **Name:** MICHAEL FRANCOO
+- **GitHub:** [@francoomichaeltech](https://github.com/francoomichaeltech)
+- **Email:** francoomichaeltech@gmail.com
